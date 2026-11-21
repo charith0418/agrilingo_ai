@@ -1,106 +1,137 @@
-# agrilingo_ai
-AI-Powered Crop Disease Detection and Smart Agricultural Advisory System
 
 agrilingo_ai/
 │
-├── frontend/                    # Next.js
-│   ├── public/
-│   │   └── images/
+├── frontend/                         # React Native + Expo
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   └── fonts/
 │   │
 │   ├── src/
-│   │   ├── app/
-│   │   │   ├── layout.jsx
-│   │   │   ├── page.jsx         # Landing Page
-│   │   │   ├── globals.css
-│   │   │   │
-│   │   │   ├── login/
-│   │   │   │   └── page.jsx
-│   │   │   ├── register/
-│   │   │   │   └── page.jsx
-│   │   │   ├── dashboard/
-│   │   │   │   ├── layout.jsx
-│   │   │   │   └── page.jsx
-│   │   │   ├── disease-detection/
-│   │   │   │   └── page.jsx
-│   │   │   ├── detection-result/
-│   │   │   │   └── page.jsx
-│   │   │   ├── advisory/
-│   │   │   │   └── page.jsx
-│   │   │   ├── crop-history/
-│   │   │   │   └── page.jsx
-│   │   │   ├── weather/
-│   │   │   │   └── page.jsx
-│   │   │   └── reports/
-│   │   │       └── page.jsx
+│   │   ├── screens/
+│   │   │   ├── HomeScreen.tsx
+│   │   │   ├── DetectionScreen.tsx
+│   │   │   ├── ResultScreen.tsx
+│   │   │   ├── DiseaseInfoScreen.tsx
+│   │   │   ├── LoginScreen.tsx
+│   │   │   ├── RegisterScreen.tsx
+│   │   │   ├── FarmerDashboardScreen.tsx
+│   │   │   ├── HistoryScreen.tsx
+│   │   │   ├── ReportsScreen.tsx
+│   │   │   ├── VolunteerDashboardScreen.tsx
+│   │   │   ├── VolunteerChatScreen.tsx
+│   │   │   ├── FertilizerCalculatorScreen.tsx
+│   │   │   ├── FertilizerShopsScreen.tsx
+│   │   │   ├── OrderRequestScreen.tsx
+│   │   │   ├── WeatherScreen.tsx
+│   │   │   └── ProfileScreen.tsx
 │   │   │
 │   │   ├── components/
-│   │   │   ├── layout/
-│   │   │   │   ├── Navbar.jsx
-│   │   │   │   ├── Footer.jsx
-│   │   │   │   └── Sidebar.jsx
-│   │   │   ├── ui/
-│   │   │   │   ├── Button.jsx
-│   │   │   │   └── Card.jsx
-│   │   │   └── detection/
-│   │   │       ├── ImageUpload.jsx
-│   │   │       └── SeverityCard.jsx
+│   │   │   ├── PrimaryButton.tsx
+│   │   │   ├── DiseaseCard.tsx
+│   │   │   ├── LoadingSpinner.tsx
+│   │   │   └── ImageUploader.tsx
+│   │   │
+│   │   ├── navigation/
+│   │   │   ├── RootNavigator.tsx
+│   │   │   ├── FarmerNavigator.tsx
+│   │   │   └── VolunteerNavigator.tsx
 │   │   │
 │   │   ├── services/
-│   │   │   ├── api.js
-│   │   │   ├── authService.js
-│   │   │   └── detectionService.js
+│   │   │   ├── api.ts
+│   │   │   ├── authService.ts
+│   │   │   ├── detectionService.ts
+│   │   │   ├── volunteerService.ts
+│   │   │   ├── fertilizerService.ts
+│   │   │   └── weatherService.ts
 │   │   │
-│   │   ├── i18n/
-│   │   │   └── config.js
-│   │   └── locales/
-│   │       ├── en.json
-│   │       ├── si.json
-│   │       └── ta.json
+│   │   ├── contexts/
+│   │   │   └── AuthContext.tsx
+│   │   │
+│   │   ├── types/
+│   │   │   ├── disease.ts
+│   │   │   ├── user.ts
+│   │   │   └── advisory.ts
+│   │   │
+│   │   ├── constants/
+│   │   │   ├── colors.ts
+│   │   │   └── config.ts
+│   │   │
+│   │   └── utils/
+│   │       └── formatDate.ts
 │   │
-│   ├── .env.local               # Do not commit
-│   ├── .env.example             # Commit example keys
+│   ├── App.tsx
+│   ├── app.json
 │   ├── package.json
-│   └── next.config.mjs
+│   ├── package-lock.json
+│   └── tsconfig.json
 │
-├── backend/                     # Python FastAPI
+├── backend/                          # Python + FastAPI
 │   ├── app/
 │   │   ├── main.py
+│   │   │
 │   │   ├── api/
-│   │   │   ├── auth.py
 │   │   │   ├── detection.py
-│   │   │   ├── history.py
-│   │   │   └── reports.py
-│   │   ├── models/
-│   │   │   ├── user.py
-│   │   │   └── prediction.py
-│   │   ├── schemas/
+│   │   │   ├── farmers.py
+│   │   │   ├── volunteers.py
+│   │   │   ├── consultations.py
+│   │   │   ├── fertilizer.py
+│   │   │   └── weather.py
+│   │   │
 │   │   ├── services/
-│   │   │   ├── ai_service.py
-│   │   │   └── advisory_service.py
-│   │   ├── database.py
-│   │   └── config.py
+│   │   │   ├── prediction_service.py
+│   │   │   ├── severity_service.py
+│   │   │   ├── report_service.py
+│   │   │   └── fertilizer_service.py
+│   │   │
+│   │   ├── schemas/
+│   │   │   ├── prediction.py
+│   │   │   ├── consultation.py
+│   │   │   └── fertilizer.py
+│   │   │
+│   │   ├── core/
+│   │   │   ├── config.py
+│   │   │   └── security.py
+│   │   │
+│   │   └── db/
+│   │       └── client.py
+│   │
 │   ├── tests/
+│   │   ├── test_detection.py
+│   │   └── test_consultations.py
+│   │
 │   ├── requirements.txt
 │   └── .env.example
 │
-├── ai-model/
-│   ├── datasets/                # Ignored data
+├── ai-model/                         # AI research and development
 │   ├── notebooks/
-│   ├── training/
-│   │   └── train.py
-│   ├── inference/
-│   │   └── predict.py
-│   ├── evaluation/
-│   ├── saved_models/
-│   └── requirements.txt
+│   │   ├── data_preparation.ipynb
+│   │   ├── model_training.ipynb
+│   │   └── model_evaluation.ipynb
+│   │
+│   ├── datasets/                    # Local, not tracked in Git
+│   │   ├── train/
+│   │   ├── val/
+│   │   └── test/
+│   │
+│   ├── saved_models/                # Usually stored outside Git
+│   │   ├── paddy_v2_best.keras
+│   │   └── classes.json
+│   │
+│   └── evaluation/
+│       ├── classification_report.csv
+│       └── confusion_matrix.png
 │
 ├── database/
-│   ├── schema.sql
-│   └── migrations/
+│   ├── migrations/
+│   ├── seed/
+│   └── policies/
 │
 ├── docs/
-│   ├── api-contract.md
-│   └── project-plan.md
+│   ├── architecture/
+│   ├── api/
+│   ├── diagrams/
+│   └── testing/
 │
 ├── .gitignore
 └── README.md
