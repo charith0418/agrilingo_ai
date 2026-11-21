@@ -1,2 +1,14 @@
-# agrilingo_ai
-AI-Powered Crop Disease Detection and Smart Agricultural Advisory System
+frontend/src/screens/
+├── HomeScreen.tsx
+├── DetectionScreen.tsx
+├── ResultScreen.tsx
+└── DiseaseInfoScreen.tsx
+
+frontend/src/components/
+├── PrimaryButton.tsx
+├── ImageUploader.tsx
+├── DiseaseCard.tsx
+└── LoadingSpinner.tsx
+
+frontend/src/constants/
+└── colors.ts
